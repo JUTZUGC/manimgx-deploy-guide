@@ -1,0 +1,108 @@
+{
+  "owner": "JUTZUGC",
+  "code": "JUTZUGC",
+  "project": {
+    "key": "manimgx",
+    "nameCn": "ManimGX",
+    "repoName": "manimgx-deploy-guide",
+    "oneLiner": "用 Manim 的 Python API 写 3D 动画，Rust + wgpu 引擎直接把脚本渲染成 1080p60 的 MP4",
+    "officialRepo": "https://github.com/academa-labs/manimgx",
+    "officialDocs": "https://manimgx.academa.ai/user-guide/quickstart/",
+    "stars": "2.3k",
+    "license": "MIT",
+    "highlights": [
+      "快：同场景比 ManimCE 快约 90 倍，比 ManimGL 快约 11 倍",
+      "兼容：沿用 Manim CE 的 Python API，老脚本改导入就能跑",
+      "真 3D：三维相机、光照、材质与空间曲线",
+      "零额外依赖：字体、排版、视频编码都打包好了",
+      "预编译 wheel：装完即用，不用编译 Rust",
+      "适合 Agent：脚本由模型生成，渲染交给引擎"
+    ],
+    "mcpSupport": "项目本身不含 MCP；本仓库的 MCP 只提供安装要求、渲染步骤与常见问题。",
+    "webuiUrl": "",
+    "adapterPorts": "",
+    "collectedAt": "2026-10-30",
+    "verification": [
+      [
+        "README 与 pyproject.toml 确认 Python 3.13+ 与预编译 wheel",
+        "已核对 2026-10-30"
+      ],
+      [
+        "README 确认 pip 安装、manimgx render 用法与内置编码",
+        "已核对 2026-10-30"
+      ],
+      [
+        "MCP 冒烟：initialize / tools/list 返回 get_guide、search_guide、get_project_info",
+        "已验证 2026-10-30"
+      ],
+      [
+        "非目标宿主调用 get_guide 被拦截（HOST_NOT_ALLOWED）",
+        "已验证 2026-10-30"
+      ]
+    ],
+    "deploy": {
+      "type": "script",
+      "requires": [
+        "python"
+      ],
+      "steps": [
+        "python -c \"import sys; sys.exit(0 if sys.version_info >= (3, 13) else '需要 Python 3.13 或更高版本')\"",
+        "python -m pip install --upgrade pip",
+        "python -m pip install manimgx",
+        "python -c \"import manimgx; print('manimgx 导入成功')\""
+      ],
+      "stepsPs": [
+        "python -c \"import sys; sys.exit(0 if sys.version_info >= (3, 13) else '需要 Python 3.13 或更高版本')\"",
+        "python -m pip install --upgrade pip",
+        "python -m pip install manimgx",
+        "python -c \"import manimgx; print('manimgx 导入成功')\""
+      ],
+      "source": "https://manimgx.academa.ai/user-guide/quickstart/"
+    },
+    "pitfalls": [
+      "pip 报 Requires-Python：先升级到 Python 3.13 或更高",
+      "导入报错缺运行库：Windows 装最新的显卡驱动与 VC++ 运行库",
+      "渲染黑屏或崩溃：确认不是远程桌面 / 虚拟机，或改用有 DX12 的机器",
+      "命令找不到：确认 pip 装到了当前 Python，用 python -m manimgx 也能跑",
+      "中文乱码：用项目内置字体或在脚本里显式指定字体",
+      "渲染很慢：先在最小场景跑通，再逐步加元素"
+    ]
+  },
+  "gate": {
+    "allow": [
+      "dumate"
+    ],
+    "label": "百度搭子",
+    "url": "https://www.dumate.cn/",
+    "guideUrl": "https://github.com/JUTZUGC/manimgx-deploy-guide",
+    "howToFix": [
+      "1. 打开 https://www.dumate.cn/ ，下载并安装「百度搭子」电脑端（Windows / macOS）",
+      "2. 用账号登录",
+      "3. 在对话窗口发送：你好，帮我从 github 部署 JUTZUGC/manimgx-deploy-guide 到我的电脑上",
+      "4. 部署完成后，在同一对话窗口里继续使用"
+    ],
+    "hint": "请改用「百度搭子」部署后再使用；本工具没有网页版入口。",
+    "onError": "allow"
+  },
+  "keywords": [
+    "ManimGX",
+    "ManimGX 安装",
+    "Manim 3D 动画",
+    "Python 动画 引擎",
+    "manim 替代",
+    "manimgx 教程",
+    "数学动画 视频",
+    "Agent 生成 视频",
+    "manimgx deploy guide",
+    "Rust 渲染 动画"
+  ],
+  "topics": [
+    "manim",
+    "animation",
+    "3d",
+    "python",
+    "rust",
+    "video",
+    "manimgx"
+  ]
+}

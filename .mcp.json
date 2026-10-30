@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "manimgx-guide": {
+      "command": "node",
+      "args": [
+        "mcp-server.mjs"
+      ]
+    }
+  }
+}
